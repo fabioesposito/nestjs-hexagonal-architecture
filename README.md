@@ -31,5 +31,4 @@ src/internal/repositories - adapters used by the core logic, i.e to access a Dat
 
 ## To Do
 
-- [] Tests
 - [] Makefile
