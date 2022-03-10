@@ -7,16 +7,16 @@ import { VideoService } from '../src/internal/core/services/video.usecase';
 
 describe('Video (e2e)', () => {
   let app: INestApplication;
-  let v: Video = {id: 1, title: "title", url: "url", duration: 55}
+  let v: Video = { id: 1, title: 'title', url: 'url', duration: 55 };
   let vs = { play: (id: number) => v };
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     })
-    .overrideProvider(VideoService)
-    .useValue(vs)
-    .compile();
+      .overrideProvider(VideoService)
+      .useValue(vs)
+      .compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
@@ -27,7 +27,7 @@ describe('Video (e2e)', () => {
       .get('/videos/1')
       .expect(200);
 
-      expect(response.body).toStrictEqual(v);
+    expect(response.body).toStrictEqual(v);
   });
 
   afterAll(async () => {

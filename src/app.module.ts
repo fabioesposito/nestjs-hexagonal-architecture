@@ -4,9 +4,10 @@ import { VideoService } from './internal/core/services/video.usecase';
 import { LoggerMiddleware } from './internal/handlers/logger.middleware';
 import { VideoController } from './internal/handlers/http';
 import { InMemoryDB } from './internal/repositories/inmemory.db';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [],
+  imports: [ConfigModule.forRoot()],
   controllers: [VideoController],
   providers: [VideoService, VideoRepository, InMemoryDB],
 })

@@ -6,7 +6,7 @@ import { VideoService } from '../core/services/video.usecase';
 export class VideoController {
   constructor(private readonly videoService: VideoService) {}
 
-  @Get("/videos/:id")
+  @Get('/videos/:id')
   @HttpCode(200)
   getVideo(@Param() params): Video {
     return this.videoService.play(params.id);

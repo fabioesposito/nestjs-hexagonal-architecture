@@ -29,6 +29,25 @@ src/internal/repositories - adapters used by the core logic, i.e to access a Dat
 
 ```
 
-## To Do
+## Commands
 
-- [] Makefile
+```bash
+# From the Makefile
+
+.PHONY: all
+.PHONY: build-docker
+.PHONY: clean
+.PHONY: deps
+.PHONY: format
+.PHONY: run-dev
+.PHONY: run-docker
+.PHONY: test-all
+.PHONY: test-cov
+.PHONY: test-unit
+```
+
+## Example request
+
+```bash
+curl -XGET http://0.0.0.0/videos/1
+```
