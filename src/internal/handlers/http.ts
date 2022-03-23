@@ -1,10 +1,10 @@
-import { Controller, Get, Header, HttpCode, Param } from '@nestjs/common';
+import { Controller, Get, Header, HttpCode, Inject, Param } from '@nestjs/common';
 import { Video } from '../core/domain/video.domain';
-import { VideoService } from '../core/services/video.usecase';
+import { IVideoService } from '../core/ports/video.ports';
 
 @Controller()
 export class VideoController {
-  constructor(private readonly videoService: VideoService) {}
+  constructor(@Inject('IVideoService') private readonly videoService: IVideoService) {}
 
   @Get('/videos/:id')
   @HttpCode(200)

@@ -9,7 +9,20 @@ import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [ConfigModule.forRoot()],
   controllers: [VideoController],
-  providers: [VideoService, VideoRepository, InMemoryDB],
+  providers: [
+    {
+      provide: 'IVideoService',
+      useClass: VideoService,
+    },
+    {
+      provide: 'IVideoRepository',
+      useClass: VideoRepository,
+    },
+    {
+      provide: 'InMemoryDB',
+      useClass: InMemoryDB,
+    },
+  ],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
